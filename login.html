@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Traviso</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="login-page-body">
+
+    <header class="main-header">
+        <a href="index.html" class="logo">Traviso</a>
+        <nav>
+            <a href="index.html">Plan Trip</a>
+            <a href="my-trips.html">My Trips</a>
+            <a href="login.html" class="btn-login">Login</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="login-form card">
+            <h1>Welcome Back!</h1>
+            <p>Login to plan your next adventure.</p>
+
+            <div class="storage-notice" style="margin-bottom: 20px; font-size: 0.82em; text-align: left;">
+                ℹ️ <strong>Prototype Preview:</strong> User accounts are a visual demonstration for this portfolio project. Traviso operates locally in your browser—your trips, budgets, and checklists are safely saved on this device without requiring cloud authentication.
+            </div>
+
+            <div id="login-feedback-message" class="toast-notification toast-success" role="status" style="display: none; position: static; margin-bottom: 18px; transform: none; width: 100%; box-sizing: border-box;"></div>
+
+            <form id="login-form-actual">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <p class="switch-form"><a href="index.html">← Back to Trip Planner</a></p>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('login-form-actual').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const feedbackEl = document.getElementById('login-feedback-message');
+            if (feedbackEl) {
+                feedbackEl.textContent = 'ℹ️ Note: Cloud authentication is not implemented. All trips and preferences are saved locally in your browser!';
+                feedbackEl.style.display = 'block';
+            }
+        });
+    </script>
+
+</body>
+</html>

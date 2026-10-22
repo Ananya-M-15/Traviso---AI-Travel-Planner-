@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Saved Trips - Traviso</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="my-trips-page-body">
+
+    <div class="video-background">
+        <video autoplay muted loop id="bg-video" playsinline>
+            <source src="assets/background-video-compressed.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <header class="main-header">
+        <a href="index.html" class="logo">Traviso</a>
+        <nav>
+            <a href="index.html">Plan Trip</a>
+            <a href="my-trips.html" class="active-nav">My Trips</a>
+            <a href="login.html" class="btn-login">Login</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="my-trips-container">
+            <!-- Toast notification container -->
+            <div id="toast-message" class="toast-notification" role="alert" style="display: none;"></div>
+
+            <!-- Header card -->
+            <div class="my-trips-header-card card">
+                <div class="overview-top-row">
+                    <div>
+                        <span class="overview-badge">Saved Itineraries</span>
+                        <h1 class="overview-title">My Saved Trips</h1>
+                    </div>
+                    <div id="trip-count-badge" class="duration-pill">0 Trips</div>
+                </div>
+                <p class="storage-notice">
+                    🔒 <strong>Local Browser Storage:</strong> Your trips are preserved locally in this browser. You can view, edit, print, or remove them at any time.
+                </p>
+                <div class="overview-actions">
+                    <a href="index.html" class="btn-secondary">+ Plan New Trip</a>
+                </div>
+            </div>
+
+            <!-- Trips Grid / List -->
+            <div id="trips-grid" class="trips-grid">
+                <!-- Dynamically populated safely via my-trips.js -->
+            </div>
+        </div>
+    </main>
+
+    <script src="storage.js"></script>
+    <script src="my-trips.js"></script>
+</body>
+</html>

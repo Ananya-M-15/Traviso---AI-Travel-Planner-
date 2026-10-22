@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Traviso</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="video-background">
+        <video autoplay muted loop id="bg-video" playsinline>
+            <source src="assets/background-video-compressed.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <header class="main-header">
+        <a href="index.html" class="logo">Traviso</a>
+        <nav>
+            <a href="index.html">Plan Trip</a>
+            <a href="my-trips.html">My Trips</a>
+            <a href="login.html" class="btn-login">Login</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="trip-planner card">
+            <h1 class="dark-grey-title">Let's Plan!</h1>
+            <p class="medium-grey-subtitle">Your next adventure starts here.</p>
+
+            <!-- Saved Trip Edit Mode Banner (Stage 4) -->
+            <div id="edit-trip-banner-container"></div>
+
+            <!-- Inline validation alert box -->
+            <div id="validation-message" class="validation-message" role="alert" style="display: none;"></div>
+
+            <form id="trip-form" novalidate>
+                <div class="input-group">
+                    <label for="destination">Destination</label>
+                    <input type="text" id="destination" name="destination" placeholder="e.g., Paris, France" autocomplete="off" required>
+                </div>
+
+                <div class="date-inputs">
+                    <div class="input-group">
+                        <label for="startDate">Start Date</label>
+                        <input type="date" id="startDate" name="startDate" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="endDate">End Date</label>
+                        <input type="date" id="endDate" name="endDate" required>
+                    </div>
+                </div>
+
+                <!-- Personalization Preferences Section (Stage 2) -->
+                <div class="preferences-container">
+                    <div class="preferences-header">
+                        <span class="pref-title">Personalize Your Itinerary</span>
+                        <span class="pref-subtitle">Tailor pace, companions & interests</span>
+                    </div>
+
+                    <!-- Travel Style -->
+                    <div class="pref-group">
+                        <span class="pref-label">Travel Style</span>
+                        <div class="chip-group" role="radiogroup" aria-label="Travel Style">
+                            <label class="chip"><input type="radio" name="travelStyle" value="Relaxed"> <span>🌿 Relaxed</span></label>
+                            <label class="chip"><input type="radio" name="travelStyle" value="Explorer" checked> <span>🧭 Explorer</span></label>
+                            <label class="chip"><input type="radio" name="travelStyle" value="Adventure"> <span>🧗 Adventure</span></label>
+                            <label class="chip"><input type="radio" name="travelStyle" value="Cultural"> <span>🏛️ Cultural</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Companions -->
+                    <div class="pref-group">
+                        <span class="pref-label">Companions</span>
+                        <div class="chip-group" role="radiogroup" aria-label="Travel Companions">
+                            <label class="chip"><input type="radio" name="companions" value="Solo"> <span>🎒 Solo</span></label>
+                            <label class="chip"><input type="radio" name="companions" value="Couple" checked> <span>💑 Couple</span></label>
+                            <label class="chip"><input type="radio" name="companions" value="Friends"> <span>🎉 Friends</span></label>
+                            <label class="chip"><input type="radio" name="companions" value="Family"> <span>👨‍👩‍👧 Family</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Daily Pace & Energy -->
+                    <div class="pref-group">
+                        <span class="pref-label">Daily Pace (Energy Budget)</span>
+                        <div class="chip-group" role="radiogroup" aria-label="Daily Pace">
+                            <label class="chip"><input type="radio" name="dailyPace" value="Light"> <span>☕ Light (4 pts)</span></label>
+                            <label class="chip"><input type="radio" name="dailyPace" value="Balanced" checked> <span>⚖️ Balanced (6 pts)</span></label>
+                            <label class="chip"><input type="radio" name="dailyPace" value="Packed"> <span>⚡ Packed (8 pts)</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Interests (Multiple) -->
+                    <div class="pref-group">
+                        <span class="pref-label">Interests</span>
+                        <div class="chip-group" role="group" aria-label="Interests">
+                            <label class="chip"><input type="checkbox" name="interests" value="Culture and History" checked> <span>🏛️ Culture & History</span></label>
+                            <label class="chip"><input type="checkbox" name="interests" value="Food and Dining" checked> <span>🍲 Food & Dining</span></label>
+                            <label class="chip"><input type="checkbox" name="interests" value="Nature and Outdoors"> <span>🌲 Nature & Outdoors</span></label>
+                            <label class="chip"><input type="checkbox" name="interests" value="Adventure"> <span>🚵 Adventure</span></label>
+                            <label class="chip"><input type="checkbox" name="interests" value="Shopping"> <span>🛍️ Shopping</span></label>
+                            <label class="chip"><input type="checkbox" name="interests" value="Nightlife"> <span>🌃 Nightlife</span></label>
+                            <label class="chip"><input type="checkbox" name="interests" value="Photography"> <span>📸 Photography</span></label>
+                            <label class="chip"><input type="checkbox" name="interests" value="Spiritual Experiences"> <span>🕊️ Spiritual</span></label>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="generateBtn" type="submit" class="btn">
+                    Generate Itinerary
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script src="storage.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
